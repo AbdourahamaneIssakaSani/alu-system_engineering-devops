@@ -7,6 +7,6 @@ else
     host="$2"
     username="$3"
     private_key="$4"
-    scp -i "$private_key" -o StrictHostKeyChecking=no "$file $username@$host:~/"
+    scp -i "$private_key" -o StrictHostKeyChecking=no "$file" "$username@$host:~/"
 fi
 
