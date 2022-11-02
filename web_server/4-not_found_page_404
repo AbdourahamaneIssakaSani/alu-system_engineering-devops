@@ -14,7 +14,7 @@ printf %s "server {
         root /var/www/html;
 
         index index.html;
-        error_page 404 /error404.html
+        error_page 404 /error404.html;
 
         server_name _;
 
