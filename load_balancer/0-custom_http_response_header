@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # comment 
+# inspired from https://stackoverflow.com/questions/22306006/configuration-file-etc-nginx-nginx-conf-test-failed-how-do-i-know-why-this-h
+sudo apt remove --purge nginx nginx-full nginx-common
 sudo apt update
 sudo apt install nginx -y
 sudo touch /var/www/html/index.html
