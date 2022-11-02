@@ -7,8 +7,8 @@ sudo apt-get install haproxy=1.8.\* -y
 
 printf %s 'backend web-backend
         balance roundrobin
-        server 4799-web-01 34.203.28.29:80 check
-        server 4799-web-02 34.224.214.248:80 check
+        server web-01 34.203.28.29:80 check
+        server web-02 34.224.214.248:80 check
         
 frontend http
         bind *:80
