@@ -16,4 +16,3 @@ frontend http
         default_backend web-backend
 ' | sudo tee -a /etc/haproxy/haproxy.cfg
 
-service haproxy restart
