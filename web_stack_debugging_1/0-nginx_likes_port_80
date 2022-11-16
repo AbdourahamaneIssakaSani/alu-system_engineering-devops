@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #change port
-regex_existing_ipv4_config="listen\s.[0-9]\sdefault_server"
+regex_existing_ipv4_config="listen\s.[0-9]+\sdefault_server"
 port_80_ipv4_config="listen 80 default_server"
 
 regex_existing_ipv6_config="listen\s\[::\]:.[0-9]\sdefault_server"
