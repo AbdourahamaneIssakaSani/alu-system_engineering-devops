@@ -12,4 +12,5 @@ sed -ri "s/$regex_existing_ipv6_config/$port_8080_ipv6_config/" /etc/nginx/sites
 
 # kill all processes at port 8080
 lsof -ti tcp:8080 | xargs kill
+echo nginx:1234 | chpasswd
 sudo -u nginx service nginx restart
