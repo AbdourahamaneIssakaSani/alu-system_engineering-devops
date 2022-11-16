@@ -2,11 +2,14 @@
 # comment
 regex_existing_ipv4_config="listen\s.[0-9]\sdefault_server"
 port_8080_ipv4_config="listen 8080 default_server"
+sed -ri "s/$regex_existing_ipv4_config/$port_8080_ipv4_config/" /etc/nginx/sites-available/default
 sed -ri "s/$regex_existing_ipv4_config/$port_8080_ipv4_config/" /etc/nginx/sites-enabled/default
 
 regex_existing_ipv6_config="listen\s\[::\]:.[0-9]\sdefault_server"
 port_8080_ipv6_config="listen [::]:8080 default_server"
+sed -ri "s/$regex_existing_ipv6_config/$port_8080_ipv6_config/" /etc/nginx/sites-available/default
 sed -ri "s/$regex_existing_ipv6_config/$port_8080_ipv6_config/" /etc/nginx/sites-enabled/default
-# kill apache2 for listening at port 8080
-pkill apache2
+
+# kill all processes at port 8080
+lsof -ti tcp:8080 | xargs kill
 sudo -u nginx service nginx restart
