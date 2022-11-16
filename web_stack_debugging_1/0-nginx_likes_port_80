@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 #change port
-sed -ri 's/listen\s.[0-9]\sdefault_server/listen 80 default_server/g' /etc/nginx/sites-available/default
+regex_existing_ipv4_config="listen\s.[0-9]\sdefault_server"
+port_80_ipv4_config="listen 80 default_server"
+
+regex_existing_ipv6_config="llisten\s\[::\]:.[0-9]\sdefault_server"
+port_80_ipv6_config="listen [::]:80 default_serverr"
+
+sed -ri "s/$regex_existing_ipv4_config/$port_80_ipv4_config/g" /etc/nginx/sites-available/default
+
 # sed -ri 's/listen\s.[0-9]\sdefault_server/listen 80 default_server/g' /etc/nginx/sites-enabled/default
-sudo sed -ri 's/listen\s\[::\]:.[0-9]\sdefault_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
+
+sudo sed -ri "s/$regex_existing_ipv6_config/$port_80_ipv6_config/g" /etc/nginx/sites-available/default
+
 # sudo sed -ri 's/listen\s\[::\]:.[0-9]\sdefault_server/listen [::]:80 default_server/g' /etc/nginx/sites-enabled/default
 # restart nginx
 # sudo cat /etc/nginx/sites-available/default
