@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #change port
 sed -ri 's/listen\s.[0-9]\sdefault_server/listen 80 default_server/g' /etc/nginx/sites-available/default
-sed -ri 's/listen\s.[0-9]\sdefault_server/listen 80 default_server/g' /etc/nginx/sites-enabled/default
-# sudo sed -ri 's/listen\s\[::\]:.[0-9]\sdefault_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
+# sed -ri 's/listen\s.[0-9]\sdefault_server/listen 80 default_server/g' /etc/nginx/sites-enabled/default
+sudo sed -ri 's/listen\s\[::\]:.[0-9]\sdefault_server/listen [::]:80 default_server/g' /etc/nginx/sites-available/default
 # sudo sed -ri 's/listen\s\[::\]:.[0-9]\sdefault_server/listen [::]:80 default_server/g' /etc/nginx/sites-enabled/default
 # restart nginx
 # sudo cat /etc/nginx/sites-available/default
