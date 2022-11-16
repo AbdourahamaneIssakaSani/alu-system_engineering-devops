@@ -12,4 +12,4 @@ sed -ri "s/$regex_existing_ipv4_config/$port_80_ipv4_config/" /etc/nginx/sites-e
 sed -ri "s/$regex_existing_ipv6_config/$port_80_ipv6_config/" /etc/nginx/sites-available/default
 sed -ri "s/$regex_existing_ipv6_config/$port_80_ipv6_config/" /etc/nginx/sites-enabled/default
 
-service nginx restart
+sudo service nginx restart
